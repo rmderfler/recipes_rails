@@ -1,0 +1,11 @@
+<h1>All Tags</h1>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a></li>
+  <% end %>
+</ul>
+
+<p><a href="tags/new">Create a new tag</a></p>
+
+<p><a href="/">Return to Main Page</a></p>

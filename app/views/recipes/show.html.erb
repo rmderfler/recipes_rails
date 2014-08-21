@@ -1,14 +1,19 @@
 <h1><%= @recipe.title %></h1>
 
 <p>Description: <%= @recipe.description %></p>
-
-<p>Ratings:</p>
+<p>Tags:</p>
 <ul>
-  <% @recipe.ratings.each do |rating| %>
-    <li><%= rating.number %></li>
+  <% @recipe.tags.each do |tag| %>
+    <li><%= tag.name %></li>
   <% end %>
 </ul>
 
 <p><a href="/recipes/<%= @recipe.id %>/edit">edit this recipe</a></p>
+
+<p><a href="/recipes/<%= @recipe.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a></p>
+
 
 <p><a href="/recipes">Return to list recipes page</a></p>

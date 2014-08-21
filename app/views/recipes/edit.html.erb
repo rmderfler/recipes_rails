@@ -1,25 +1,9 @@
 <h1>New recipe</h1>
 
-<% if @recipe.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @recipe.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render('errors') %>
 
 <form action="/recipes/<%= @recipe.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
-  <label for="recipe_title">Title of Recipe</label>
-  <input id="recipe_title" name="recipe[title]" type="text" value="<%= @recipe.title %>">
-  <label for="recipe_description">description</label>
-  <input id="recipe_description" name="recipe[description]" type="text" value="<%= @recipe.description %>">
-  <label>Tag</label>
-  <select name="recipe[tag_id]">
-    <% Tag.all.each do |tag| %>
-      <option value="<%= tag.id %>"><%= tag.name %></option>
-    <% end %>
-  </select>
+  <%= render('form') %>
   <button>Update recipe</button>
 </form>

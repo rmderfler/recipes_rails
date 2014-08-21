@@ -15,8 +15,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(params[:recipe])
-    if @recipe.save
+    tag = Tag.find(params[:tag_id])
+    @recipe = tag.recipes.create(params[:recipe])
+    if @recipe.valid?
       flash[:notice] = "You are special!"
       redirect_to("/recipes/#{@recipe.id}")
     else
@@ -37,6 +38,12 @@ class RecipesController < ApplicationController
     else
       render('recipes/new.html.erb')
     end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    render('recipes/destroy.html.erb')
   end
 
 end

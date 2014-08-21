@@ -8,6 +8,8 @@
 </head>
 <body>
   <div class="container">
+    <%= flash[:notice] %>
+    <%= flash[:update] %>
     <%= yield %>
   </div>
 </body>

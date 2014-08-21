@@ -1,0 +1,19 @@
+<h1><%= @tag.name %></h1>
+
+
+<p>Recipes:</p>
+<ul>
+  <% @tag.recipes.each do |recipe| %>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></li>
+  <% end %>
+</ul>
+
+
+
+<p><a href="/tags/<%= @tag.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a></p>
+
+
+<p><a href="/tags">Return to list tags page</a></p>

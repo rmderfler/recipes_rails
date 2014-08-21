@@ -1,0 +1,10 @@
+<h1><%= @recipe.title %></h1>
+
+<p>Description: <%= @recipe.description %></p>
+
+<p>Ratings:</p>
+<ul>
+  <% @recipe.ratings.each do |rating| %>
+    <li><%= rating.number %></li>
+  <% end %>
+</ul>
